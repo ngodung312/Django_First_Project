@@ -32,14 +32,20 @@
     ></script>
   </head>
   <body>
-    <h1 class="text-center pt-3">Django First Project</h1>
-    <p class="text-center">{{insert_text}}</p>
-
+    <h1 class="text-center text-uppercase pt-3">Django First Project</h1>
+    <h4 class="text-center pt-2">{{insert_text}}</h4>
     <div class="container">
-      <ul class="pages d-flex flex-column align-items-center">
-        <li><a href="{% url 'main_page' %}">First App Main Page</a></li>
-        <li><a href="{% url 'access_records' %}">Access Records</a></li>
-        <li><a href="{% url 'user_form' %}">User Form</a></li>
+      
+      <ul class="nav justify-content-center font-weight-bold">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'main_page' %}">First App</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'access_records' %}">Access Records</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'user_form' %}">User Form</a>
+        </li>
       </ul>
     </div>
   </body>

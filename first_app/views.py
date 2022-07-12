@@ -1,7 +1,4 @@
-import imp
-from django.shortcuts import render
-from django.http import HttpResponse
-from requests import request
+from django.shortcuts import render, redirect
 from first_app.models import Topic, Webpage, AccessRecord
 from first_app import forms
 
@@ -23,15 +20,18 @@ def access_records(request):
 
 
 def user_form(request):
-    form = forms.UserForm()
-
     if request.method == 'POST':
         form = forms.UserForm(request.POST)
-
-        if form.is_valid():
-            print("VALIDATION SUCCESS!")
-            print('NAME:', form.cleaned_data['name'])
-            print('EMAIL:', form.cleaned_data['email'])
-            print('TEXT:', form.cleaned_data['text'])
-
-    return render(request, 'first_app/user_form.html', {'form': form})
+        if form.is_valid:        
+            try:
+                form.save()
+                print("VALIDATION SUCCESS!")
+                print('NAME:', form.cleaned_data['name'])
+                print('EMAIL:', form.cleaned_data['email'])
+                print('VERIFY EMAIL:', form.cleaned_data['verify_email'])  
+                return redirect("user_form")
+            except:
+                return render(request, 'first_app/user_form.html', {'form': form})
+    else:
+        form = forms.UserForm()
+        return render(request, 'first_app/user_form.html', {'form': form})

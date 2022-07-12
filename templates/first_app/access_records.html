@@ -34,6 +34,10 @@
 <body>
     <h1 class="text-center pt-3">Access Records</h1>
 
+    <div class="container d-flex justify-content-center pb-3">
+      <a href="{% url 'index' %}" class="btn btn-light" role="button" aria-pressed="true">First Project</a>
+    </div>
+
     <div class="records m-5 border">
         {% if access_records %}
         <table class="table table-hover">

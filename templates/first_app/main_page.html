@@ -32,14 +32,18 @@
     ></script>
   </head>
   <body>
-    <div class="container-fluid title">
+    <div class="container-fluid title p-3">
       <h1 class="text-center">Hello, this is Django First App!</h1>
     </div>
 
-    <div class="container-fluid subtitle">
+    <div class="container subtitle">
       <div class="alert alert-primary text-center" role="alert">
         {{insert_me}}
       </div>
+    </div>
+
+    <div class="container d-flex justify-content-center pb-3">
+      <a href="{% url 'index' %}" class="btn btn-light" role="button" aria-pressed="true">First Project</a>
     </div>
 
     <div class="container form">

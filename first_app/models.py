@@ -26,8 +26,11 @@ class AccessRecord(models.Model):
         return str(self.date)
 
 
-class User(models.Model):
+class UserInfo(models.Model):
     name = models.CharField(max_length=264)
     email = models.EmailField(unique=True)
     verify_email = models.EmailField()
     text = models.TextField()
+
+    def __str__(self):
+            return self.email
