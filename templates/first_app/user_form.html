@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 {% extends "first_app/base.html" %}
 {% load static %}
+
+{% block head_block %}
+<script src="{% static 'js/user_form.js' %}"></script>
+{% endblock %}
+
 {% block body_block %}
   <h1 class="text-center pt-3">User Form</h1>
   <p class="text-center">Please fill out the form with your information!</p>

@@ -1,0 +1,32 @@
+{% extends "first_app/base.html" %} 
+{% load static %} 
+{% block body_block %}
+
+<div class="d-flex flex-column" style="padding: 2rem 15%;">
+  <h1 class="text-center p-3">Login</h1>
+  {% if login_status %}
+  <div class="alert alert-danger text-center" role="alert">{{ login_status }}</div>
+  {% endif %}
+  
+  <div class="jumbotron">
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="inputUsername">Username</label>
+        <input type="text" class="form-control" id="inputUsername" name="username" placeholder="Enter username">
+      </div>
+      <div class="form-group">
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Enter password">
+      </div>
+      <input type="hidden" name="next" value="{{ next }}">
+      <div class="form-group d-flex flex-row justify-content-between">
+        <button type="submit" class="btn btn-primary">Login</button>
+        <a href="{% url 'first_app:registration' %}" style="font-size: 16px;">Create new user</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

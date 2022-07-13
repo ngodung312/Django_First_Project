@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% extends "first_app/base.html" %} 
+{% load static %} 
+
+{% block head_block %}
+<script src="{% static 'js/registration.js' %}"></script>
+{% endblock %}
+
+{% block body_block %}
+
+<div class="d-flex flex-column" style="padding: 2rem 10%;">
+  <h1 class="text-center p-2">Register</h1>
+  {% if registered %}
+  <div class="jumbotron">
+    <h4 class="text-center p-2">Thank you for registering!</h4>
+  </div>
+  {% else %}
+  <div class="jumbotron pt-5">
+    <h4 class="text-center p-2">Create new user:</h4>
+    <form enctype="multipart/form-data" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="id_username">Username</label>
+        {{ user_form.username }}
+        <small id="usernameHelp" class="form-text text-muted">
+          Required. 150 characters or fewer. Letters, digits and @ . + - _ only.
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="id_email">Email</label>
+        {{ user_form.email }}
+      </div>
+      <div class="form-group">
+        <label for="id_password">Password</label>
+        {{ user_form.password }}
+      </div>
+      <div class="form-group">
+        <label for="id_portfolio_site">Portfolio Site</label>
+        {{ profile_form.portfolio_site }}
+      </div>
+      <div class="form-group">
+        <label for="id_profile_pic">Profile Pic</label>
+        <div class="custom-file">
+          {{ profile_form.profile_pic }}
+          <label for="id_profile_pic" class="custom-file-label">Choose file</label>
+        </div>
+      </div>
+      <button id="registerBtn" type="submit" class="btn btn-primary container-fluid mt-3 pt-2">Register</button>
+    </form>
+  </div>
+</div>
+{% endif %}
+{% endblock %}
