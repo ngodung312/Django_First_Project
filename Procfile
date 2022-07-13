@@ -1,3 +1,3 @@
-web: gunicorn first_project.wsgi:application --log-file - --log-level debug
+web: gunicorn first_project.wsgi:application --log-file
 python manage.py collectstatic --noinput
 manage.py migrate
