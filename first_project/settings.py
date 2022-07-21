@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-#!wa#oaeqxn$)g81k54w4e&bz=sa9ac_x(fp00!1jr0!^&7n1t
 DEBUG = True
 
 # ALLOWED_HOSTS = ['http://django-gdl1hc.herokuapp.com/', 'django-gdl1hc.herokuapp.com']
-# ALLOWED_HOSTS = ['http://gdl1hc.herokuapp.com/', 'gdl1hc.herokuapp.com']
+ALLOWED_HOSTS = ['http://gdl1hc.herokuapp.com/', 'gdl1hc.herokuapp.com']
 # ALLOWED_HOSTS = ['http://gdl1hc.pythonanywhere.com/', 'gdl1hc.pythonanywhere.com']
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
