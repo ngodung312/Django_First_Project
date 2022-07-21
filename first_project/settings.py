@@ -34,6 +34,19 @@ DEBUG = True
 # ALLOWED_HOSTS = ['http://gdl1hc.herokuapp.com/', 'gdl1hc.herokuapp.com']
 # ALLOWED_HOSTS = ['http://gdl1hc.pythonanywhere.com/', 'gdl1hc.pythonanywhere.com']
 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = '20520961@gm.uit.edu.vn'
+# EMAIL_HOST_PASSWORD = ''
+
+
+# Celery Configuration Options
+CELERY_TIMEZONE = "Asia/Saigon"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+
 
 # Application definition
 
