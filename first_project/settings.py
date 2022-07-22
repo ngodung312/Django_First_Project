@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-#!wa#oaeqxn$)g81k54w4e&bz=sa9ac_x(fp00!1jr0!^&7n1t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://gdl1hc.herokuapp.com/', 'gdl1hc.herokuapp.com']
+# ALLOWED_HOSTS = ['http://gdl1hc.herokuapp.com/', 'gdl1hc.herokuapp.com']
 # ALLOWED_HOSTS = ['http://gdl1hc.pythonanywhere.com/', 'gdl1hc.pythonanywhere.com']
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -62,6 +62,8 @@ INSTALLED_APPS = [
     'first_app',
     'videos',
     'custom_admin',
+    'background_task',
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -106,6 +108,17 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'django_db',
+#         'USER': 'vrdxrkwxsnaaxr',
+#         'PASSWORD': 'daf30cd42000438f2d84b1eb25393a74f64cc167413793893450cbf94fbb3383',
+#         'HOST': 'ec2-34-235-198-25.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
@@ -172,3 +185,7 @@ LOGIN_URL = 'login'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'custom_admin.User'
+
+CRONJOBS = [
+    ('*/2 * * * *', 'custom_admin.cron.background_tasks')
+]
