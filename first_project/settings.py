@@ -30,9 +30,24 @@ SECRET_KEY = 'django-insecure-#!wa#oaeqxn$)g81k54w4e&bz=sa9ac_x(fp00!1jr0!^&7n1t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://django-gdl1hc.herokuapp.com/', 'django-gdl1hc.herokuapp.com']
-# ALLOWED_HOSTS = ['http://gdl1hc.herokuapp.com/', 'gdl1hc.herokuapp.com']
+ALLOWED_HOSTS = ['http://gdl1hc.herokuapp.com/', 'gdl1hc.herokuapp.com']
 # ALLOWED_HOSTS = ['http://gdl1hc.pythonanywhere.com/', 'gdl1hc.pythonanywhere.com']
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = '20520961@gm.uit.edu.vn'
+# EMAIL_HOST_PASSWORD = ''
+
+
+# Celery Configuration Options
+CELERY_TIMEZONE = "Asia/Saigon"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+CELERY_BROKER_URL = 'redis://:p5e93997bd9d2e57352979596090e824ccd262e1b3099707704e0f69ca6a786f6@ec2-44-205-222-104.compute-1.amazonaws.com:28460'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
 
 
 # Application definition
@@ -45,6 +60,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'first_app',
+    'videos',
+    'custom_admin',
 ]
 
 MIDDLEWARE = [
@@ -153,3 +170,5 @@ LOGIN_URL = 'login'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'custom_admin.User'

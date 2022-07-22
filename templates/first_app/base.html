@@ -52,7 +52,7 @@
 
       <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          {% if user.is_superuser or user.is_staff %}
+          {% if user.is_superuser %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
           </li>
@@ -82,7 +82,7 @@
             <a class="nav-link" href="{% url 'login' %}">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'first_app:registration' %}"
+            <a class="nav-link" href="{% url 'registration' %}"
               >Register</a
             >
           </li>
