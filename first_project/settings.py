@@ -46,6 +46,9 @@ ALLOWED_HOSTS = ['http://gdl1hc.herokuapp.com/', 'gdl1hc.herokuapp.com']
 CELERY_TIMEZONE = "Asia/Saigon"
 CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
+CELERY_BROKER_URL = 'redis://:p5e93997bd9d2e57352979596090e824ccd262e1b3099707704e0f69ca6a786f6@ec2-44-205-222-104.compute-1.amazonaws.com:28460'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
 
 
 # Application definition

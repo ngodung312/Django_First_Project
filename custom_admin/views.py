@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from custom_admin import forms
+from custom_admin import forms, tasks
 
 
 # Create your views here.
@@ -52,7 +52,7 @@ def register(request):
             user.set_password(user.password)
             if 'profile_pic' in request.FILES:
                 user.profile_pic = request.FILES['profile_pic']
-
+            # tasks.modify_name(username=user.username)
             user.save()
             registered = True 
         else:
