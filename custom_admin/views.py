@@ -1,7 +1,10 @@
+from timeit import repeat
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from custom_admin import forms, tasks
+from custom_admin.models import User
+from background_task import background
 
 
 # Create your views here.
@@ -15,6 +18,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
+                count_login_times(user.username)
                 try:
                     return redirect(request.POST['next'])
                 except:
@@ -63,3 +67,11 @@ def register(request):
     return render(request, 'custom_admin/registration.html', 
                         {   'user_form': user_form, 
                             'registered': registered    })
+
+
+@background(schedule=20, queue='task-queue')
+def count_login_times(username):
+    user = User.objects.get(username=username)
+    # user.first_name = username.upper()
+    user.login_times += 1
+    user.save()

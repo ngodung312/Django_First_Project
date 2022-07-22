@@ -1,0 +1,1 @@
+"C:\Users\gdl1hc\.conda\envs\django_env\python.exe" manage.py process_tasks --queue task-queue

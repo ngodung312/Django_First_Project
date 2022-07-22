@@ -14,3 +14,5 @@ class User(AbstractUser):
 
     is_verified = models.BooleanField('verified', default=False) # Add the `is_verified` flag
     verification_uuid = models.UUIDField('Unique Verification UUID', default=uuid.uuid4)
+
+    login_times = models.DecimalField(max_digits=10, decimal_places=0, blank=False, default=0, editable=False)
